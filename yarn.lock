@@ -2299,28 +2299,28 @@
     "@svgr/plugin-svgo" "^4.3.1"
     loader-utils "^1.2.3"
 
-"@swoop-exchange/core@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@swoop-exchange/core/-/core-1.0.3.tgz#57c959eb89deeb577694cdb24fad9ca079326f22"
-  integrity sha512-DVGNLmvXK8/wwZVlzndu0pDLY+Fa4AuWfNf4mkRVIa/pcBFMjnyrfw79id/La4G7yaz7NVaRqYBVFlwJrVlJPg==
-
-"@swoop-exchange/default-token-list@^1.1.0":
+"@swoop-exchange/core@^1.1.0":
   version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@swoop-exchange/default-token-list/-/default-token-list-1.1.0.tgz#bc9507fdf4cec6b947e84d09b7ff5bddc2cb872b"
-  integrity sha512-e6YWJPSE3I31EnDNenPJlYRkFeK9F31fGvlPKUvbqpmXT2aMZrDXFXnjRKuHg54Fg/g6es/YELr561WHzuSgrg==
+  resolved "https://registry.yarnpkg.com/@swoop-exchange/core/-/core-1.1.0.tgz#a9d5a5ec45748eb38be66445f681cdc7bd9ad148"
+  integrity sha512-t3+kCHdBpZ3hByjBjFLHGKpxYlYB+u+72NzUPAzdJpFnTlNAO52rLg+tMytAilrUX9lSLS7v+S0qOZ042PoZXQ==
 
-"@swoop-exchange/periphery@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@swoop-exchange/periphery/-/periphery-1.0.1.tgz#0c05c12f6e402d5a6145e254d303f175d0bb23fa"
-  integrity sha512-KqREmAuZALEn5PP4mBcnIchVtoiALxExx1wADhcD+Tb1sWp5kop6yzP8+f9t+YIrC8sj8Ey6+PqiRb5MViYwKQ==
+"@swoop-exchange/default-token-list@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@swoop-exchange/default-token-list/-/default-token-list-1.2.0.tgz#66aabb341f966eab60bdb8a9c1075406a691d5dd"
+  integrity sha512-y0U2HgAe44KixRlT+T+M33cCePSRE4VZmBs1ha6S1hmdMkUcTHYyrZ7rQW3CLJ2EjIKbNHA9X2fY4StB/pzD+Q==
 
-"@swoop-exchange/sdk@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@swoop-exchange/sdk/-/sdk-1.2.1.tgz#23536f1a823eb0bf00c71710d6f238ded9688711"
-  integrity sha512-T77rkI+RCAghF1qRlLjVOABEa1p3UyAD3o0c6Qh+xMEHleISUAQofyxn0t19GYhxc3ru/69uAwX0IfL0eqIY5A==
+"@swoop-exchange/periphery@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@swoop-exchange/periphery/-/periphery-1.1.0.tgz#a48311e92a1c4785ccf6ef6813771493e8ffb49f"
+  integrity sha512-1DiWHOMVhm/x2XKf3z04epOlygqiHy7bLc/zD33qmTf0Ete0qEj05Rv9NeAUmbT1pitb0d3CPUiD+pywdV7ZMQ==
+
+"@swoop-exchange/sdk@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@swoop-exchange/sdk/-/sdk-1.3.0.tgz#8d879ee98a7522cd054917c32827bcddf39a8e0f"
+  integrity sha512-L/3317lbcGN34b9qWMn1qFOBPppQ+/u0wnWdmIQHbLBLxg2reRVoLWYoIBWIygRZuSk/8XF8JOYdgZGoHtFhPg==
   dependencies:
     "@harmony-js/core" "^0.1.55"
-    "@swoop-exchange/core" "^1.0.3"
+    "@swoop-exchange/core" "^1.1.0"
     big.js "^5.2.2"
     decimal.js-light "^2.5.0"
     jsbi "^3.1.1"
@@ -2328,10 +2328,10 @@
     tiny-warning "^1.0.3"
     toformat "^2.0.0"
 
-"@swoop-exchange/utils@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@swoop-exchange/utils/-/utils-1.0.0.tgz#4ad569b19bb241bbe9991d3e75827756e3cb755a"
-  integrity sha512-rCN2YF6EmabadnygOGKd+w5fxILWktYvvGmUsyZg8jefbBchHRVa+1s94CIy4KspjkozPReN4X4xAPcKDDNeFg==
+"@swoop-exchange/utils@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@swoop-exchange/utils/-/utils-1.1.0.tgz#a11cf243e25708dcdd2667d18b074ccc9d617fe2"
+  integrity sha512-2Tgf96lTkyP3z1YhPDDGfQmRSXg52OUMpCYKHjGlF8y+C2vY9w7rQvcHAA06hUFbiOBYL+lLZQ+sjeSXqSqqFA==
 
 "@testing-library/dom@^7.11.0":
   version "7.26.3"
