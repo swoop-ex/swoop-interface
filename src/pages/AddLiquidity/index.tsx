@@ -95,7 +95,7 @@ export default function AddLiquidity({
   const addPair = usePairAdder();
   useEffect(() => {
     //if (noLiquidity && canAddPair) {
-    if (canAddPair) {
+    if (canAddPair && pair?.token0 && pair?.token1) {
       addPair(pair);
       setCanAddPair(false)
     }
@@ -427,7 +427,7 @@ export default function AddLiquidity({
                     {approvalA !== ApprovalState.APPROVED && (
                       <ButtonPrimary
                         onClick={approveACallback}
-                        disabled={approvalA === ApprovalState.PENDING}
+                        disabled={approvalA === ApprovalState.PENDING || approvalB === ApprovalState.PENDING}
                         width={approvalB !== ApprovalState.APPROVED ? '48%' : '100%'}
                       >
                         {approvalA === ApprovalState.PENDING ? (
@@ -440,7 +440,7 @@ export default function AddLiquidity({
                     {approvalB !== ApprovalState.APPROVED && (
                       <ButtonPrimary
                         onClick={approveBCallback}
-                        disabled={approvalB === ApprovalState.PENDING}
+                        disabled={approvalB === ApprovalState.PENDING || approvalA === ApprovalState.PENDING}
                         width={approvalA !== ApprovalState.APPROVED ? '48%' : '100%'}
                       >
                         {approvalB === ApprovalState.PENDING ? (

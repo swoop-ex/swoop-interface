@@ -36,11 +36,25 @@ export function useTransactionAdder(): (
 
 // returns all the transactions for the current chain
 export function useAllTransactions(): { [txHash: string]: TransactionDetails } {
-  const { chainId } = useActiveHmyReact();
+  const { chainId } = useActiveHmyReact()
+
+  const userWallet = useSelector<AppState, AppState['user']['userWallet']>(state => {
+    return state.user.userWallet
+  })
 
   const state = useSelector<AppState, AppState['transactions']>(state => state.transactions)
 
-  return chainId ? state[chainId] ?? {} : {}
+  const transactions = {}
+
+  if (chainId && state[chainId]) {
+    for (const key in state[chainId]) {
+      if (state[chainId][key].from === userWallet.address) {
+        transactions[key] = state[chainId][key]
+      }
+    }
+  }
+
+  return transactions
 }
 
 export function useIsTransactionPending(transactionHash?: string): boolean {
