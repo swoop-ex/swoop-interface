@@ -2304,20 +2304,20 @@
   resolved "https://registry.yarnpkg.com/@swoop-exchange/core/-/core-1.1.0.tgz#a9d5a5ec45748eb38be66445f681cdc7bd9ad148"
   integrity sha512-t3+kCHdBpZ3hByjBjFLHGKpxYlYB+u+72NzUPAzdJpFnTlNAO52rLg+tMytAilrUX9lSLS7v+S0qOZ042PoZXQ==
 
-"@swoop-exchange/default-token-list@1.3.3":
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/@swoop-exchange/default-token-list/-/default-token-list-1.3.3.tgz#71535764e42317d46e889b1406c5972d7041e31b"
-  integrity sha512-yClQD1KgsRZnRHUwEmsA+wDXm5XhVSP349+LGoyoZdn1G1phpJrsYPmp0redMkLh+VsXKYmZ67YE+tawBmpE8w==
+"@swoop-exchange/default-token-list@1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@swoop-exchange/default-token-list/-/default-token-list-1.4.0.tgz#5e2c3902e2e0cb9f368f714a789da9874db9f304"
+  integrity sha512-HohTM8TBtIthUfw8NKmheEwoQRdjgODWRlpxXiuODlIHt6KQL5xa+UVrVc4jkr7pl119gFIjZEqk/mpGf0DSmQ==
 
 "@swoop-exchange/periphery@1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@swoop-exchange/periphery/-/periphery-1.1.0.tgz#a48311e92a1c4785ccf6ef6813771493e8ffb49f"
   integrity sha512-1DiWHOMVhm/x2XKf3z04epOlygqiHy7bLc/zD33qmTf0Ete0qEj05Rv9NeAUmbT1pitb0d3CPUiD+pywdV7ZMQ==
 
-"@swoop-exchange/sdk@1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@swoop-exchange/sdk/-/sdk-1.3.1.tgz#bac3bd323bdea4e18c796f6309f6292bd424f453"
-  integrity sha512-cuJELlYwIe67NuA8L+BYvVY2M7G5zGHK0hRMIi+HJsRXu7m3iwbJ8s3HvBuXC/Mk7adqw3CmOl3oNyYW2lwB/w==
+"@swoop-exchange/sdk@1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@swoop-exchange/sdk/-/sdk-1.4.0.tgz#93bfc9356ed2c3851581e541da9e22fe3fc3acc9"
+  integrity sha512-PTXfUmPJOs2qygu8eXmxStgLG9qFsx938X6I4mRNb/61PHYoyMfHO3jWorDBmvp9LD47hHv7pM4AeIp5PxIW/g==
   dependencies:
     "@harmony-js/core" "^0.1.55"
     "@swoop-exchange/core" "^1.1.0"
