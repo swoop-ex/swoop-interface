@@ -35,3 +35,4 @@ cypress/videos
 cypress/screenshots
 cypress/fixtures/example.json
 *.iml
+*.swp
