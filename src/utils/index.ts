@@ -13,19 +13,42 @@ import { Hmy } from '@swoop-exchange/utils';
 import { hmy } from '../connectors'
 import { AbstractWallet } from '@swoop-exchange/utils'
 
+import { isBech32Address } from '@harmony-js/utils'
+import { fromBech32 } from '@harmony-js/crypto'
+
 // returns the checksummed address if the address is valid, otherwise returns false
 export function isAddress(value: any): string | false {
   try {
+    var convertedAddress = bech32ToBase16(value);
+    if (convertedAddress) {
+      value = convertedAddress
+    }
     return getAddress(value)
   } catch {
     return false
   }
 }
 
+export function bech32ToBase16(value: any): string | false {
+  if (isBech32Address(value)) {
+    try {
+      return fromBech32(value)
+    } catch {
+      return false
+    }
+  } else {
+    return false
+  }
+}
+
 export function isHarmonyAddress(value: any): string | false {
-  try {
-    return hmy.client.crypto.getAddress(value).raw
-  } catch {
+  if (isBech32Address(value)) {
+    try {
+      return hmy.client.crypto.getAddress(value).raw
+    } catch {
+      return false
+    }
+  } else {
     return false
   }
 }

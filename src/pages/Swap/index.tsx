@@ -454,7 +454,10 @@ export default function Swap() {
                   error={isValid && priceImpactSeverity > 2}
                 >
                   <Text fontSize={16} fontWeight={500}>
-                    {priceImpactSeverity > 3 && !isExpertMode
+                    {
+                      attemptingTxn && isExpertMode
+                      ? <Dots>Swapping</Dots>
+                      : priceImpactSeverity > 3 && !isExpertMode
                       ? `Price Impact High`
                       : `Swap${priceImpactSeverity > 2 ? ' Anyway' : ''}`}
                   </Text>
@@ -480,7 +483,10 @@ export default function Swap() {
                 error={isValid && priceImpactSeverity > 2 && !swapCallbackError}
               >
                 <Text fontSize={20} fontWeight={500}>
-                  {swapInputError
+                  {
+                    attemptingTxn && isExpertMode
+                    ? <Dots>Swapping</Dots>
+                    : swapInputError
                     ? swapInputError
                     : priceImpactSeverity > 3 && !isExpertMode
                     ? `Price Impact Too High`
