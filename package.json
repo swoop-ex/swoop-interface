@@ -1,7 +1,7 @@
 {
   "name": "@swoop-exchange/interface",
   "description": "Swoop Interface",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "homepage": ".",
   "private": true,
   "devDependencies": {
@@ -14,7 +14,7 @@
     "@swoop-exchange/core": "1.1.0",
     "@swoop-exchange/sdk": "1.4.2",
     "@swoop-exchange/default-token-list": "1.4.0",
-    "@swoop-exchange/periphery": "1.1.0",
+    "@swoop-exchange/periphery": "1.1.1",
     "@swoop-exchange/utils": "1.1.0",
     "@types/jest": "^25.2.1",
     "@types/lodash.flatmap": "^4.5.6",
