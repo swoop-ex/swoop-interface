@@ -90,7 +90,7 @@ function TransactionSubmittedContent({
         </ConfirmedIcon>
         <AutoColumn gap="12px" justify={'center'}>
           <Text fontWeight={500} fontSize={20}>
-            Transaction Submitted
+            Transaction Confirmed
           </Text>
 
           {chainId && hash && (
