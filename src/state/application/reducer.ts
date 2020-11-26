@@ -5,8 +5,8 @@ import {
   removePopup,
   toggleWalletModal,
   toggleSettingsMenu,
-  updateBlockNumber
-} from './actions'
+  updateBlockNumber, toggleEthereumWalletModal,
+} from './actions';
 
 type PopupList = Array<{ key: string; show: boolean; content: PopupContent; removeAfterMs: number | null }>
 
@@ -14,6 +14,7 @@ export interface ApplicationState {
   blockNumber: { [chainId: number]: number }
   popupList: PopupList
   walletModalOpen: boolean
+  walletEthereumModalOpen: boolean
   settingsMenuOpen: boolean
 }
 
@@ -21,7 +22,8 @@ const initialState: ApplicationState = {
   blockNumber: {},
   popupList: [],
   walletModalOpen: false,
-  settingsMenuOpen: false
+  settingsMenuOpen: false,
+  walletEthereumModalOpen: false
 }
 
 export default createReducer(initialState, builder =>
@@ -36,6 +38,9 @@ export default createReducer(initialState, builder =>
     })
     .addCase(toggleWalletModal, state => {
       state.walletModalOpen = !state.walletModalOpen
+    })
+    .addCase(toggleEthereumWalletModal, state => {
+      state.walletEthereumModalOpen = !state.walletEthereumModalOpen
     })
     .addCase(toggleSettingsMenu, state => {
       state.settingsMenuOpen = !state.settingsMenuOpen

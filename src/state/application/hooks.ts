@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from 'react'
-import { addPopup, PopupContent, removePopup, toggleWalletModal, toggleSettingsMenu } from './actions'
+import { addPopup, PopupContent, removePopup, toggleWalletModal, toggleEthereumWalletModal, toggleSettingsMenu } from './actions'
 import { useSelector, useDispatch } from 'react-redux'
 import { AppState } from '../index'
 
@@ -18,6 +18,15 @@ export function useWalletModalOpen(): boolean {
 export function useWalletModalToggle(): () => void {
   const dispatch = useDispatch()
   return useCallback(() => dispatch(toggleWalletModal()), [dispatch])
+}
+
+export function useEthereumWalletModalOpen(): boolean {
+  return useSelector((state: AppState) => state.application.walletEthereumModalOpen)
+}
+
+export function useEthereumWalletModalToggle(): () => void {
+  const dispatch = useDispatch()
+  return useCallback(() => dispatch(toggleEthereumWalletModal()), [dispatch])
 }
 
 export function useSettingsMenuOpen(): boolean {

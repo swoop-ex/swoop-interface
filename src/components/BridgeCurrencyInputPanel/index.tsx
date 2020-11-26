@@ -133,21 +133,21 @@ interface CurrencyInputPanelProps {
 }
 
 export default function CurrencyInputPanel({
-  value,
-  onUserInput,
-  onMax,
-  showMaxButton,
-  label = 'Input',
-  onCurrencySelect,
-  currency,
-  disableCurrencySelect = false,
-  hideBalance = false,
-  pair = null, // used for double token logo
-  hideInput = false,
-  otherCurrency,
-  id,
-  showCommonBases
-}: CurrencyInputPanelProps) {
+                                             value,
+                                             onUserInput,
+                                             onMax,
+                                             showMaxButton,
+                                             label = 'Input',
+                                             onCurrencySelect,
+                                             currency,
+                                             disableCurrencySelect = false,
+                                             hideBalance = false,
+                                             pair = null, // used for double token logo
+                                             hideInput = false,
+                                             otherCurrency,
+                                             id,
+                                             showCommonBases
+                                           }: CurrencyInputPanelProps) {
   const { t } = useTranslation()
 
   const [modalOpen, setModalOpen] = useState(false)
@@ -222,8 +222,8 @@ export default function CurrencyInputPanel({
                 <StyledTokenName className="token-symbol-container" active={Boolean(currency && currency.symbol)}>
                   {(currency && currency.symbol && currency.symbol.length > 20
                     ? currency.symbol.slice(0, 4) +
-                      '...' +
-                      currency.symbol.slice(currency.symbol.length - 5, currency.symbol.length)
+                    '...' +
+                    currency.symbol.slice(currency.symbol.length - 5, currency.symbol.length)
                     : currency?.symbol) || t('Select a token')}
                 </StyledTokenName>
               )}

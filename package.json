@@ -1,7 +1,7 @@
 {
   "name": "@swoop-exchange/interface",
   "description": "Swoop Interface",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "homepage": ".",
   "private": true,
   "devDependencies": {
@@ -120,7 +120,11 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
+    "bridge-ui-sdk": "^1.0.13",
     "lint-staged": "^10.5.0",
-    "react-cookie-banner": "^4.1.0"
+    "react-cookie-banner": "^4.1.0",
+    "stylus": "^0.54.7",
+    "stylus-loader": "3.0.2",
+    "web3": "^1.3.0"
   }
 }
