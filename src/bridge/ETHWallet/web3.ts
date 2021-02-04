@@ -4,7 +4,7 @@ import {hmy} from '../../connectors';
 
 
 const url = process.env.REACT_APP_NETWORK_URL // 'https://kovan.infura.io/v3/b354225f2d364c80932a2d80320db450';
-const web3 = new Web3(new Web3.providers.HttpProvider(url));
+export const web3 = new Web3(new Web3.providers.HttpProvider(url));
 
 const tokens = hmy.chainId === 1 ? ethereumTokens.mainnet : ethereumTokens.kovan;
 
