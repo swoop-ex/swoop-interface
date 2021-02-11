@@ -286,7 +286,7 @@ export default function RemoveLiquidity({
 
     const safeGasEstimates: (BigNumber | undefined)[] = await Promise.all(
       methodNames.map(methodName =>
-        router.methods[methodName](...args).estimateGas(wrapper.gasOptionsForEstimation())
+        router.methods[methodName](...args).estimateGas({ from: account })
           .then(gasEstimateResponse => {
             let gasEstimate = BigNumber.from(gasEstimateResponse)
             return calculateGasMargin(gasEstimate)
