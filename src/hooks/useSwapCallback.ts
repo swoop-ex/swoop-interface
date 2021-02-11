@@ -13,8 +13,6 @@ import { useV1ExchangeContract } from './useContract'
 import useENS from './useENS'
 import { Version } from './useToggledVersion'
 
-import { hexToNumber } from '@harmony-js/utils';
-
 import { useActiveHmyReact } from '../hooks'
 
 export enum SwapCallbackState {
@@ -149,10 +147,11 @@ export function useSwapCallback(
               contract
             } = call
 
-            //const options = !value || isZero(value) ? {} : { value }
-
+            const options = !value || isZero(value) ? { from: account } : { from: account, value: value }
+            const optionsWithGasDefaults = { ...wrapper.gasOptions(), ...options }
             //return contract.estimateGas[methodName](...args, options)
-            return contract.methods[methodName](...args).estimateGas(wrapper.gasOptionsForEstimation())
+
+            return contract.methods[methodName](...args).estimateGas(options)
               .then(gasEstimateResponse => {
                 let gasEstimate = BigNumber.from(gasEstimateResponse)
                 return {
@@ -163,13 +162,8 @@ export function useSwapCallback(
               .catch(gasError => {
                 console.debug('Gas estimate failed, trying eth_call to extract error', call)
 
-                let opts = wrapper.gasOptions()
-                if (value && !isZero(value)) {
-                  opts.value = hexToNumber(value);
-                }
-
                 //return contract.callStatic[methodName](...args, options)
-                return contract.methods[methodName](...args).send(opts)
+                return contract.methods[methodName](...args).send(optionsWithGasDefaults)
                   .then(result => {
                     console.debug('Unexpected successful call after failed estimate gas', call, gasError, result)
                     return { call, error: new Error('Unexpected issue with estimating the gas. Please try again.') }
@@ -177,15 +171,19 @@ export function useSwapCallback(
                   .catch(callError => {
                     console.debug('Call threw error', call, callError)
                     let errorMessage: string
-                    switch (callError.reason) {
-                      case 'UniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT':
-                      case 'UniswapV2Router: EXCESSIVE_INPUT_AMOUNT':
-                        errorMessage =
-                          'This transaction will not succeed either due to price movement or fee on transfer. Try increasing your slippage tolerance.'
-                        break
-                      default:
-                        errorMessage = `The transaction cannot succeed due to error: ${callError.reason}. This is probably an issue with one of the tokens you are swapping.`
+
+                    if (callError && callError.reason) {
+                      switch (callError.reason) {
+                        case 'UniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT':
+                        case 'UniswapV2Router: EXCESSIVE_INPUT_AMOUNT':
+                          errorMessage =
+                            'This transaction will not succeed either due to price movement or fee on transfer. Try increasing your slippage tolerance.'
+                          break
+                        default:
+                          errorMessage = `The transaction cannot succeed due to error: ${callError.reason}. This is probably an issue with one of the tokens you are swapping.`
+                      }
                     }
+
                     return { call, error: new Error(errorMessage) }
                   })
               })
@@ -220,19 +218,14 @@ export function useSwapCallback(
         }).then ...
         */
 
-        let opts = wrapper.gasOptions()
-        //opts.gasLimit = calculateGasMargin(gasEstimate).toNumber()
-        if (value && !isZero(value)) {
-          opts.value = value;
-        }
-        opts.from = account
+       const options = !value || isZero(value) ? { from: account } : { from: account, value: value }
+       const optionsWithGasDefaults = { ...wrapper.gasOptions(), ...options }
 
-        return contract.methods[methodName](...args).send(opts)
+        return contract.methods[methodName](...args).send(optionsWithGasDefaults)
           .then((response: any) => {
             let receipt = response?.transaction?.receipt
-            let status: number | undefined = (receipt?.status === '0x0' || receipt?.status === '0x1') ? Number(hexToNumber(receipt.status)) : undefined
 
-            if (status === 1) {
+            if (receipt?.status === '0x1') {
               const inputSymbol = trade.inputAmount.currency.symbol
               const outputSymbol = trade.outputAmount.currency.symbol
               const inputAmount = trade.inputAmount.toSignificant(6)
